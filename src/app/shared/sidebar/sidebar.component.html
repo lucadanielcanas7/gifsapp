@@ -3,18 +3,11 @@
 
   <hr class="text-white" />
 
+  <h5 class="history-title">History</h5>
+
   <div class=" list-group list-reset">
-    <a href="#" class="list-group-item list-group-item-action">
-      Dashboard
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">
-      Dashboard
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">
-      Dashboard
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">
-      Dashboard
+    <a *ngFor="let history of userHistory" href="#" class="list-group-item list-group-item-action">
+      {{history}}
     </a>
   </div>
 
