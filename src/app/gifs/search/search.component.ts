@@ -17,9 +17,10 @@ export class SearchComponent {
   search(): void {
     const value = this.txtSearch.nativeElement.value;
 
-    this.gifsService.searchGifs(value);
+    if (value.trim().length !== 0) {
+      this.gifsService.searchGifs(value);
 
-    this.txtSearch.nativeElement.value = '';
+      this.txtSearch.nativeElement.value = '';
+    }
   }
-
 }
