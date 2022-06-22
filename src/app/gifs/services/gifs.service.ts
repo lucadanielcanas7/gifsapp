@@ -12,7 +12,13 @@ export class GifsService {
   }
 
   searchGifs(query: string) {
-    this._userHistory.unshift(query);
+    
+    query = query.trim().toLowerCase();
+
+    if (!this._userHistory.includes(query)) {
+      this._userHistory.unshift(query);
+      this._userHistory = this._userHistory.splice(0, 10);
+    }
     console.log(this._userHistory);
   }
 }
