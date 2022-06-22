@@ -7,7 +7,8 @@
 
   <div class=" list-group list-reset">
     <a *ngFor="let history of userHistory" href="#" class="list-group-item list-group-item-action">
-      {{history}}
+      {{history | titlecase}}
+      <!--pipe-->
     </a>
   </div>
 
