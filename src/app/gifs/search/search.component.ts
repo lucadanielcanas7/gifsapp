@@ -5,22 +5,34 @@ import { GifsService } from '../services/gifs.service';
   selector: 'app-search',
   templateUrl: './search.component.html',
   styles: [
+    `
+    .form {
+      display: flex;
+    }
+    select {
+      width: 75px;
+      margin-left: 1rem;
+    }
+    `
   ]
 })
 export class SearchComponent {
 
   //Select the view query element (input)
   @ViewChild('txtSearch') txtSearch!: ElementRef<HTMLInputElement>;
+  @ViewChild('sltPagination') sltPagination!: ElementRef<HTMLSelectElement>;
 
   constructor(private gifsService: GifsService) {}
 
   search(): void {
-    const value = this.txtSearch.nativeElement.value;
+    const txtSearchValue = this.txtSearch.nativeElement.value;
+    const sltPaginationValue = this.sltPagination.nativeElement.value;
 
-    if (value.trim().length !== 0) {
-      this.gifsService.searchGifs(value);
+    if (txtSearchValue.trim().length !== 0) {
+      this.gifsService.searchGifs(txtSearchValue,Number(sltPaginationValue));
 
       this.txtSearch.nativeElement.value = '';
     }
+    this.sltPagination.nativeElement.value = '10';
   }
 }

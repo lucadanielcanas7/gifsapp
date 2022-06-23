@@ -1,2 +1,12 @@
-<h5>Buscar: </h5>
-<input type="text" class="form-control" placeholder="Buscar gifs" (keyup.enter)="search()" #txtSearch>
+<h5>Search: </h5>
+<div class="form">
+  <input type="text" class="form-control" placeholder="Gif name" (keyup.enter)="search()" #txtSearch>
+  <select class="form-select" #sltPagination>
+    <option selected value="10">10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="40">40</option>
+    <option value="50">50</option>
+  </select>
+</div>
+<button type="button" class="btn btn-success form-control mt-2" (click)="search()">Search gifs</button>
